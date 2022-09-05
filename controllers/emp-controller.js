@@ -34,7 +34,7 @@ class EmpController {
     static read = async (req, res) => {
         try {
             const allEmp = await Emp.find()
-            res.json({ status: 'sucess', data: allEmp })
+            res.json(allEmp)
 
         } catch (error) {
             res.json({ status: 'failed', error })
