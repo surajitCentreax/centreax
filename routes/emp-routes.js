@@ -5,8 +5,8 @@ const EmpController = require('../controllers/emp-controller');
 // user routing paths
 router.route('/').get(EmpController.read)
 router.route('/').post(EmpController.create)
-// router.route('/update').get(EmpController.update)
-// router.route('/delete').post(EmpController.delete)
+router.route('/:empId').put(EmpController.update)
+router.route('/:empId').delete(EmpController.delete)
 // router.route('/delete').post(isAuthorized, EmpController.delete)
 // router.route('/forgot_password').get(EmpController.forgot_password)
 

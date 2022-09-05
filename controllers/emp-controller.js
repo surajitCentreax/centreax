@@ -41,6 +41,27 @@ class EmpController {
         }
     }
 
+    static delete = async (req, res) => {
+        try {
+            const empId = req.params.empId;
+            await Emp.deleteOne({_id: empId})
+            res.status(200).json("Record deleted successfully")
+        } catch (error) {
+            res.json({ status: 'failed', error })
+        }
+    }
+
+    static update = async (req, res) => {
+        try {
+            const empId = req.params.empId;
+            const data = req.body;
+            const updatedEmp = await Emp.updateOne({_id: empId}, data)
+            res.status(200).json("Record updated successfully")
+        } catch (error) {
+            res.json({ status: 'failed', error })
+        }
+    }
+
     static login = async (req, res) => {
         try {
             const { email, password } = req.body;
