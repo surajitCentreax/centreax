@@ -35,7 +35,16 @@ class EmpController {
         try {
             const allEmp = await Emp.find()
             res.json(allEmp)
-
+        } catch (error) {
+            res.json({ status: 'failed', error })
+        }
+    }
+    
+    static readSingle = async (req, res) => {
+        try {
+            const empId = req.params.empId;
+            const empData = await Emp.findById(empId)
+            res.json(empData)
         } catch (error) {
             res.json({ status: 'failed', error })
         }
