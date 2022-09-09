@@ -32,12 +32,17 @@ class EmpController {
     }
 
     static read = async (req, res) => {
-        try {
-            const allEmp = await Emp.find()
-            res.json(allEmp)
-        } catch (error) {
-            res.json({ status: 'failed', error })
-        }
+        // if (req.body != undefined) {
+        //     console.log(req.body);
+        //     res.json("query")
+        // } else {
+            try {
+                const allEmp = await Emp.find()
+                res.json(allEmp)
+            } catch (error) {
+                res.json({ status: 'failed', error })
+            }
+        // }
     }
     
     static readSingle = async (req, res) => {
@@ -61,6 +66,17 @@ class EmpController {
     }
 
     static update = async (req, res) => {
+        try {
+            const empId = req.params.empId;
+            const data = req.body;
+            const updatedEmp = await Emp.updateOne({_id: empId}, data)
+            res.status(200).json("Record updated successfully")
+        } catch (error) {
+            res.json({ status: 'failed', error })
+        }
+    }
+
+    static search = async (req, res) => {
         try {
             const empId = req.params.empId;
             const data = req.body;

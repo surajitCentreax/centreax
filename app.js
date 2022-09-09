@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const auth_router = require('./routes/emp-routes')
 const emp_router = require('./routes/emp-routes')
+const event_router = require('./routes/event-routes')
 // const router = require('./routes/user-routes')
 
         /*------------ Middleware setup -------------*/
@@ -16,7 +17,9 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => {
     res.send("Hello World :)");
 })
+
 app.use('/emp', emp_router)
+app.use('/event', event_router)
 // app.use('/admin', admin_router)
 
 module.exports = app;

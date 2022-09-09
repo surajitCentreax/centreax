@@ -8,6 +8,7 @@ router.route('/:empId').get(EmpController.readSingle)
 router.route('/').post(EmpController.create)
 router.route('/:empId').put(EmpController.update)
 router.route('/:empId').delete(EmpController.delete)
+// router.route('/:empId').delete(EmpController.delete)
 // router.route('/delete').post(isAuthorized, EmpController.delete)
 // router.route('/forgot_password').get(EmpController.forgot_password)
 
