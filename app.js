@@ -1,7 +1,7 @@
 const app = require('express')()
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const auth_router = require('./routes/emp-routes')
+const user_router = require('./routes/user-routes')
 const emp_router = require('./routes/emp-routes')
 const event_router = require('./routes/event-routes')
 // const router = require('./routes/user-routes')
@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 
 app.use('/emp', emp_router)
 app.use('/event', event_router)
+app.use('/user', user_router)
 // app.use('/admin', admin_router)
 
 module.exports = app;

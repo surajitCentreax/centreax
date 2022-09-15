@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-// full_name, address, phone_number, email, user_name, password, blood_group, designation
+
 const eventSchema = mongoose.Schema({
   event_name: {
     type: String,
